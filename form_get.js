@@ -1,33 +1,25 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const fs = require('fs');
 const PORT = 8000;
+const app = express();
 
-app.get('/data',function(req,res){
+const displayUserData = function(req,res){
     res.writeHead(200,{"Content-type":"text/html"});
-    res.write('your name is '+req.query.name+'' );
+    res.write(`your Name is ${req.query.name}`);
     res.write('</br>');
-    res.write('your AGE is '+req.query.age+'' );
+    res.write(`your AGE is ${req.query.age}`);
     res.write('</br>');
-    res.write('your email id is '+req.query.email_id+'' );
+    res.write(`your Email id is ${req.query.email_id}`);
     res.end();
-});
+}
 
-app.get('/',function(req,res){
-    res.writeHead(200,{"Content-type":"text/html"});
-    res.write('<form action="/data" method="get">');
-    res.write('<h1>');
-    res.write('ENTER YOUR NAME');
-    res.write('<input type="text" name="name">');
-    res.write('</br>');
-    res.write('ENTER YOUR AGE');
-    res.write('<input type="number" name="age">');
-    res.write('</br>');
-    res.write('ENTER YOUR EMAIL ID');
-    res.write('<input type="text" name="email_id">');
-    res.write('<input type="submit">');
-    res.write('<h1>');
-    res.write('</form>');
+const displayForm = function(req,res){
+    const formContent = fs.readFileSync('./form_get.html');
+    res.write(formContent);
     res.end();
-});
+}
 
-app.listen(PORT);
+app.get('/data',displayUserData);
+app.get('/',displayForm);
+
+app.listen(PORT,() => console.log(`Server is listening at ${PORT}`));
