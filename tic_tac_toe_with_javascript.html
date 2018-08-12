@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<button onclick="play_again()" id="play_again"><FONT COLOR="WHITE" SIZE="6">PLAY_AGAIN</FONT></button>
+<script>
+function play_again(){
+	location.reload();
+}
+</script>
+<font size="8" color="red">
+<h1 id="result">
+</h1>
+
+<style>
+#play_again{
+	float:left;
+	width:230px;
+	height:80px;
+	background-color:#0080ff;
+}
+#result{
+	margin-left:3.4em;
+}
+.first1{
+	width:180px;
+	height:180px;
+	background:url("photos/b11.png");
+    background-size:100% 100%;
+}
+.first2{
+	width:180px;
+	height:180px;
+background:url("photos/b12.png");
+    background-size:100% 100%;
+}
+.first3{
+	width:180px;
+	height:180px;
+background:url("photos/b13.png");
+    background-size:100% 100%;
+}
+.first4{
+	width:180px;
+	height:180px;
+background:url("photos/b14.png");
+    background-size:100% 100%;
+}
+.first5{
+	width:180px;
+	height:180px;
+background:url("photos/b15.png");
+    background-size:100% 100%;
+}
+.first6{
+	width:180px;
+	height:180px;
+background:url("photos/b16.png");
+    background-size:100% 100%;
+}
+.first7{
+	width:180px;
+	height:180px;
+background:url("photos/b17.png");
+    background-size:100% 100%;
+}
+.first8{
+	width:180px;
+	height:180px;
+background:url("photos/b18.png");
+    background-size:100% 100%;
+}
+.first9{
+	width:180px;
+	height:180px;
+background:url("photos/b19.png");
+    background-size:100% 100%;
+}
+#game
+{
+
+    float:left;
+	margin-top:-0.19em
+}
+
+#whole{
+	margin-top:2em;
+	width:700px;
+}
+</style>
+<center>
+<div id="whole">
+<div id="game">
+<button type="button"  id="1" class="first1" onclick="game1(1)"></button> </div><div id="game">
+<button  type="button" id="2" class="first2" onclick="game2(2)"></button> </div><div id="game">
+<button  type="button" id="3" class="first3" onclick="game3(3)"></button> </div><div id="game">
+<button type="button"  id="4" class="first4" onclick="game4(4)"></button> </div><div id="game">
+<button type="button"  id="5" class="first5" onclick="game5(5)"></button></div> <div id="game">
+<button  type="button" id="6" class="first6" onclick="game6(6)"></button> </div><div id="game">
+<button  type="button" id="7" class="first7" onclick="game7(7)"></button> </div><div id="game">
+<button type="button"  id="8" class="first8" onclick="game8(8)"></button> </div><div id="game">
+<button type="button"  id="9" class="first9" onclick="game9(9)"></button> </div>
+</div>
+</center>
+<script>
+   values_store();
+  function values_store(){
+	 
+	values=[];
+	user_values=[];
+	computer_values=[];
+   }
+  function check_result(){
+	if((user_values.includes(1)) && (user_values.includes(2)) && (user_values.includes(3)) ){
+	document.getElementById("result").innerHTML = "YOU WIN ";
+	}
+	if((user_values.includes(4)) && (user_values.includes(5)) && (user_values.includes(6)) ){
+	document.getElementById("result").innerHTML = "YOU WIN ";
+	}
+	if((user_values.includes(7)) && (user_values.includes(8)) && (user_values.includes(9)) ){
+	document.getElementById("result").innerHTML = "YOU WIN ";
+	}
+	if((user_values.includes(1)) && (user_values.includes(4)) && (user_values.includes(7)) ){
+	document.getElementById("result").innerHTML = "YOU WIN ";
+	}
+	if((user_values.includes(2)) && (user_values.includes(5)) && (user_values.includes(8)) ){
+	document.getElementById("result").innerHTML = "YOU WIN ";
+	}
+	if((user_values.includes(3)) && (user_values.includes(6)) && (user_values.includes(9)) ){
+	document.getElementById("result").innerHTML = "YOU WIN ";
+	}
+	if((user_values.includes(1)) && (user_values.includes(5)) && (user_values.includes(9)) ){
+	document.getElementById("result").innerHTML = "YOU WIN ";
+	}
+	if((user_values.includes(3)) && (user_values.includes(5)) && (user_values.includes(7)) ){
+	document.getElementById("result").innerHTML = "YOU WIN ";
+	}
+	<!--------------------------------------------------------------------------------------------->
+    if((computer_values.includes(1)) && (computer_values.includes(2)) && (computer_values.includes(3)) ){
+	document.getElementById("result").innerHTML = "YOU LOSE THIS GAME ";
+	}
+	if((computer_values.includes(4)) && (computer_values.includes(5)) && (computer_values.includes(6)) ){
+	document.getElementById("result").innerHTML = "YOU LOSE THIS GAME";
+	}
+	if((computer_values.includes(7)) && (computer_values.includes(8)) && (computer_values.includes(9)) ){
+	document.getElementById("result").innerHTML = "YOU LOSE THIS GAME ";
+	}
+	if((computer_values.includes(1)) && (computer_values.includes(4)) && (computer_values.includes(7)) ){
+	document.getElementById("result").innerHTML = "YOU LOSE THIS GAME";
+	}
+	if((computer_values.includes(2)) && (computer_values.includes(5)) && (computer_values.includes(8)) ){
+	document.getElementById("result").innerHTML = "YOU LOSE THIS GAME";
+	}
+	if((computer_values.includes(3)) && (computer_values.includes(6)) && (computer_values.includes(9)) ){
+	document.getElementById("result").innerHTML = "YOU LOSE THIS GAME";
+	}
+	if((computer_values.includes(1)) && (computer_values.includes(5)) && (computer_values.includes(9)) ){
+	document.getElementById("result").innerHTML = "YOU LOSE THIS GAME";
+	}
+	if((computer_values.includes(3)) && (computer_values.includes(5)) && (computer_values.includes(7)) ){
+	document.getElementById("result").innerHTML = "YOU LOSE THIS GAME ";
+	}
+     }
+     function game1(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random1(rand);
+   function random1(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random1(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul1.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+  function game2(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero2.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random2(rand);
+   function random2(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random2(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul2.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+  function game3(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero3.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random3(rand);
+   function random3(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random3(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul3.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+  function game4(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero4.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random4(rand);
+   function random4(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random4(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul4.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+  function game5(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero5.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random5(rand);
+   function random5(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random5(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul5.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+  function game6(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero6.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random6(rand);
+   function random6(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random6(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul6.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+  function game7(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero7.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random7(rand);
+   function random7(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random7(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul7.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+  function game8(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero8.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random8(rand);
+   function random8(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random8(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul8.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+  function game9(x){ 
+	if(!values.includes(x))
+	{
+		values.push(x);
+		user_values.push(x);
+		document.getElementById(x).style.backgroundImage="url('photos/zero9.png')";
+   rand=Math.floor(Math.random() * 9) + 1;
+   random9(rand);
+   function random9(rand){
+	  
+   	
+   if(values.includes(rand)){
+   rand=Math.floor(Math.random() * 9) + 1;
+   random9(rand);
+   }
+   else{
+   values.push(rand);
+   computer_values.push(rand);
+   document.getElementById(rand).style.backgroundImage = "url('photos/mul9.png')";
+  
+   }
+   }
+	}
+	else{
+		alert("A L R E A D Y  C L I K E D");
+	}
+	check_result();
+}
+	</script>
+
+
+<p id="hello2">
+</p>
+
+
+</html>
