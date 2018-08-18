@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+<style>
+  .box{width:90px;height:90px;background:url("photos/minus_point.jpg");background-size:100% 100%;}
+
+  #whole{width:600px;margin-top:4em;margin-left:2em;}
+
+  #box{float:left;margin-top:0.1em;margin-left:0.1em}
+  
+  #plus_point{float:left}
+  
+  #minus_point{float:right}
+  
+  #timer{float:left;margin-left:3.4em;}
+  
+ 
+</style>
+<body>
+      <font color="green">
+        <h1 id="plus_point">+POINTS=0</h1>
+      </font>
+        <h1 id="timer">00:05</h1>
+      <font color="red">
+        <h1 id="minus_point">-POINTS=0</h1><br><BR>
+      </font><br><center>
+        <a href="https://www.vivja.com/click"><h1 id="TIME_OUT"></H1></a></center><br>
+      <center><FONT COLOR="RED">
+        <h1 id="WIN_OR_LOSS"></h1></FONT></center>
+<center>
+      <div id="whole">
+              <div id="box">
+                 <button onclick="check(1)" id="1" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(2)" id="2" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(3)" id="3" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(4)" id="4" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(5)" id="5" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(6)" id="6" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(7)" id="7" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(8)" id="8" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(9)" id="9" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(10)" id="10" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(11)" id="11" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(12)" id="12" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(13)" id="13" class="box"></button>
+             </div>
+             <div id="box">
+                <button onclick="check(14)" id="14" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(15)" id="15" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(16)" id="16" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(17)" id="17" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(18)" id="18" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(19)" id="19" class="box"></button>
+              </div>
+              <div id="box">
+                <button onclick="check(20)" id="20" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(21)" id="21" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(22)" id="22" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(23)" id="23" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(24)" id="24" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(25)" id="25" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(26)" id="26" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(27)" id="27" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(28)" id="28" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(29)" id="29" class="box"></button>
+              </div>
+               <div id="box">
+                <button onclick="check(30)" id="30" class="box"></button>
+              </div>
+      </div>
+</center>
+
+<script>
+var values = [];
+
+var plus_point = [];
+
+var minus_point = [];
+
+on_page_load();
+
+function on_page_load(){
+    
+   for(a=0;a<15;a++){
+       
+   random = Math.floor(Math.random() * 30) + 1;
+
+   if(!values.includes(random)){
+
+   values.push(random);
+
+   document.getElementById(random).style.backgroundImage="url('photos/plus_point1.png')";
+
+}}}
+function check(x){
+    
+   if(!values.includes("time_out")){
+       
+   if(!values.includes(x)){
+   
+   minus_point.push(x);
+   }
+   else{
+       
+   if(!plus_point.includes(x)){
+       
+   plus_point.push(x);
+   
+   document.getElementById(x).style.backgroundImage="";
+   
+   }}
+   plus_points=plus_point.length;
+   
+   minus_points=minus_point.length;
+   
+   document.getElementById("plus_point").innerHTML=`+POINTS=${plus_points}`;
+   
+   document.getElementById("minus_point").innerHTML=`-POINTS=${minus_points}`;
+   }
+   else{
+   document.getElementById("TIME_OUT").innerHTML=" <button STYLE=COLOR:WHITE;BACKGROUND-COLOR:#00ace6 ><H1>TIME _ OUT PLAY AGAIN</H1></button>";
+   
+}}
+
+</script>
+<script>
+timer();
+
+function timer(){
+    setTimeout(call1,0);
+    setTimeout(call2,2000);
+    setTimeout(call3,3000);
+    setTimeout(call4,4000);
+    setTimeout(call5,5000);
+    setTimeout(call6,6000);
+    setTimeout(call7,7000);
+    
+}
+function call1(){
+    document.getElementById("timer").innerHTML="00:05";
+}
+function call2(){
+    document.getElementById("timer").innerHTML="00:04";
+}
+function call3(){
+    document.getElementById("timer").innerHTML="00:03";
+}
+function call4(){
+    document.getElementById("timer").innerHTML="00:02";
+}
+
+function call5(){
+    document.getElementById("timer").innerHTML="00:01";
+}
+
+function call6(){
+    document.getElementById("timer").innerHTML="00:00";
+    
+    const time_out="time_out";
+    
+    values.push(time_out);
+   
+}
+function call7(){
+    values_length=values.length;
+    
+    plus_point_length=plus_point.length+1;
+    
+    if(values_length===plus_point_length){
+        
+    document.getElementById("WIN_OR_LOSS").innerHTML="YOU WIN";
+    }
+    else{
+        
+    document.getElementById("TIME_OUT").innerHTML=" <button STYLE=COLOR:WHITE;BACKGROUND-COLOR:#00ace6 ><H1>TIME _ OUT PLAY AGAIN</H1></button>";
+      
+}}
+</script>
+</body>
+</html>
